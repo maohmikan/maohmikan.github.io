@@ -6,7 +6,7 @@
     var hostname = "localhost";
 
     function mc_init(host) {
-        hostname = host;
+        hostname = host；
         if(mcSocket == null) {
             mcSocket = new WebSocket("ws://"+host+":14711");
             mcSocket.onopen    = onOpen;
@@ -157,11 +157,11 @@
     }
 
     function worldReset() {
-      postToChat('まわりをもとにもどします')
-      setBlocks(-100,  0, -100, 100, 63, 100, 0);
-      setBlocks(-100, -4, -100, 100, -1, 100, 2);
-      setBlocks(-100, -5, -100, 100, -5, 100, 7);
-      setPlayer(0, 0, 0);
+        postToChat('まわりをもとにもどします')
+        setBlocks(-100,  0, -100, 100, 63, 100, 0);
+        setBlocks(-100, -4, -100, 100, -1, 100, 2);
+        setBlocks(-100, -5, -100, 100, -5, 100, 7);
+        setPlayer(0, 0, 0);
     }
 
     ext.connect      = connect;
@@ -207,7 +207,7 @@
           [' ', '%s とチャットする', 'postToChat', 'ハロー、ワールド！' ],
           ['r', '%m.blockName', 'block_name', 'ダイヤブロック'],
           ['R', 'X:%n Y:%n Z:%n のブロックをゲット', 'getBlock', 0,0,0 ],
-          ['R', 'X:%n Y:%n Z:%n に %s をおく', 'setBlock', 0,0,0,' ' ],
+          [' ', 'X:%n Y:%n Z:%n に %s をおく', 'setBlock', 0,0,0,' ' ],
           [' ', 'X1:%n Y1:%n Z1:%n から X2:%n Y2:%n Z2:%n まで %s をおく', 'setBlocks', 0,0,0,0,0,0," " ],
           [' ', 'ワールドをリセット', 'worldReset'],
           [' ', 'X=%n Y=%n Z=%n にプレイヤーをいどう', 'setPlayer', 0,0,0 ],
@@ -220,7 +220,7 @@
         menus: {
             pos: ['x', 'y', 'z'],
             blockPos: ['abs', 'rel'],
-            blockName: ['', '石', '草', '土', '丸石', '木材', '溶岩', 'TNT', 'ダイヤブロック', 'ジャック・オ・ランタン', 'レッドストーンブロック'],
+            blockName: ['空気', '石', '草', '土', '丸石', '木材', '溶岩', 'TNT', 'ダイヤブロック', 'ジャック・オ・ランタン', 'レッドストーンブロック'],
             // mobName: ['羊', '馬', ],
         }
     };

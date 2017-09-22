@@ -6,7 +6,7 @@
     var hostname = "localhost";
 
     function mc_init(host) {
-        hostname = host；
+        hostname = host;
         if(mcSocket == null) {
             mcSocket = new WebSocket("ws://"+host+":14711");
             mcSocket.onopen    = onOpen;
@@ -164,19 +164,7 @@
         setPlayer(0, 0, 0);
     }
 
-    ext.connect      = connect;
-    ext.connect_url  = connect_url;
-    ext.postToChat   = postToChat;
-    ext.getBlock     = getBlock;
-    ext.setBlock     = setBlock;
-    ext.setBlocks    = setBlocks;
-    ext.setPlayer    = setPlayer;
-    ext.getPlayerPos = getPlayerPos;
-    ext.playerXYZ    = getPlayerYXZ;
-    ext.sendRawMsg   = sendRawMsg;
-    ext.worldReset   = worldReset;
-
-    ext.block_name   = function(block) {
+    function block_name(block) {
         var blockList = [
             [0, '空気'],
             [1, '石'],
@@ -198,8 +186,21 @@
         }
         mcSend("chat.post(" + block + "はみつかりませんでした)");
         return 1;
-    };
-
+    }
+  
+    ext.connect      = connect;
+    ext.connect_url  = connect_url;
+    ext.postToChat   = postToChat;
+    ext.getBlock     = getBlock;
+    ext.setBlock     = setBlock;
+    ext.setBlocks    = setBlocks;
+    ext.setPlayer    = setPlayer;
+    ext.getPlayerPos = getPlayerPos;
+    ext.playerXYZ    = getPlayerYXZ;
+    ext.sendRawMsg   = sendRawMsg;
+    ext.worldReset   = worldReset;
+    ext.block_name   = block_name;
+  
     // Block and block menu descriptions
     var descriptor = {
         blocks: [
@@ -240,7 +241,7 @@
     };
 
     // Register the extension
-    ScratchExtensions.register('MinecraftWebSocket-Scratch', descriptor, ext);
+    ScratchExtensions.register('Mycratch', descriptor, ext);
 
     mc_init( "localhost" );
 

@@ -186,6 +186,14 @@
         [165, 0,  'スライムブロック'],
     ];
 
+    var blockNameList = [];
+
+    function makeBlockNameList() {
+        for(i=0; i<blockList.length; i++){
+            blockNameList[i] = blockList[i][2];
+        }
+    }
+
     function block_name(block) {
         for(var i=0; i<blockList.length; i++){
             if(block == blockList[i][2]){
@@ -226,11 +234,12 @@
           ['r', 'プレイヤーの %m.pos ざひょう', 'playerXYZ', 'x'],
           // [' ', 'プレイヤーに %n ダメージをあたえる', 'giveDamage', 1],
           // [' ', '%m.mobName をしょうかんする', 'summonMob', '羊'],
-          [' ', '直接入力 %s', 'sendRawMsg', '' ], // for Extension Developper
+          // [' ', '直接入力 %s', 'sendRawMsg', '' ], // for Extension Developper
         ],
         menus: {
             pos: ['x', 'y', 'z'],
             blockPos: ['abs', 'rel'],
+//          blockName: [blockNameList], (動かない) …　これもどこに入れよう　makeBlockNameList();
             blockName: ['空気','石','草','土','丸石','オークの木材','マツの木材','シラカバの木材','溶岩','金ブロック','鉄ブロック','TNT','ダイヤブロック','オークのドア','木の感圧版','ソウルサンド','ジャック・オ・ランタン','エメラルドブロック','ビーコン','レッドストーンブロック','スライムブロック'],
             // mobName: ['羊', '馬', ],
         }
